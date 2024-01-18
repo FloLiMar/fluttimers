@@ -1,8 +1,8 @@
-import 'package:dev/component/TimerSelector.dart';
+import 'package:dev/common/ListWheelWidget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+      runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,48 +10,44 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => MyAppState(),
-      child: MaterialApp(
-        title: 'Namer App',
+    return MaterialApp(
         theme: ThemeData(
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
         ),
-        home: MyHomePage(),
-      ),
-    );
+        home: const MyHomePage(),
+      );
   }
 }
 
-class MyAppState extends ChangeNotifier {
-  var timer = 30;
-  void updateTimer = (int newValue) => {
-    timer = newValue;
-    notifyL
-  }
-}
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
+  int value = 0;
+  void updateValue(int newValue) {
+    setState(() {
+      value = newValue;
+    });
+    print(value);
+  }
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: const Text('Fluttimers'),
       ),
-      body: const Center(
+      body:  Center(
         child: Column(
-          children: [TimerSelector()],
+          children: [ListInfiniteWheel<int>(items: List<int>.generate(
+            60, (index) => index,
+          ), onSelectedItemChangedCallback: updateValue,)],
         ),
       ),
     );
