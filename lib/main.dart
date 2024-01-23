@@ -1,4 +1,4 @@
-import 'package:dev/common/ListWheelWidget.dart';
+import 'package:dev/common/NumberListWheelWidget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -45,9 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body:  Center(
         child: Column(
-          children: [ListInfiniteWheel<int>(items: List<int>.generate(
-            60, (index) => index,
-          ), onSelectedItemChangedCallback: updateValue,)],
+          children: [NumberListWheelWidget(onSelectedItemChangedCallback: updateValue, maxValue: 59)],
         ),
       ),
     );
