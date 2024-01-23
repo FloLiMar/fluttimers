@@ -1,6 +1,6 @@
-import 'package:dev/common/NumberListWheelWidget.dart';
+import 'package:dev/common/widget/NumberListWheelWidget.dart';
 import 'package:flutter/material.dart';
-
+import 'common/constants.dart' as constants;
 void main() {
       runApp(const MyApp());
 }
@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body:  Center(
         child: Column(
-          children: [NumberListWheelWidget(onSelectedItemChangedCallback: updateValue, maxValue: 59)],
+          children: [NumberListWheelWidget(onSelectedItemChangedCallback: updateValue, maxValue: constants.maxMinutes)],
         ),
       ),
     );
