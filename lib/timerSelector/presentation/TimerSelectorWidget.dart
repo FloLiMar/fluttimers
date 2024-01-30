@@ -1,5 +1,6 @@
-import 'package:dev/common/widget/NumberListWheelWidget.dart';
+import 'package:dev/timerSelector/domain/TimeParameter.dart';
 import 'package:dev/timerSelector/domain/timer.dart';
+import 'package:dev/timerSelector/presentation/TimeWheelWidget.dart';
 import 'package:flutter/widgets.dart';
 import '../../common/constants.dart' as constants;
 
@@ -14,12 +15,8 @@ class TimerSelectorWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.max,
       children: [
-        NumberListWheelWidget(
-            onSelectedItemChangedCallback: timer.addMinutes,
-            maxValue: constants.maxMinutes),
-        NumberListWheelWidget(
-            onSelectedItemChangedCallback: timer.addSeconds,
-            maxValue: constants.maxSeconds)
+        TimeWheelWidget(timeParameter: TimeParameter(unit: 'm', addValue: timer.addMinutes, maxValue: constants.maxMinutes)),
+        TimeWheelWidget(timeParameter: TimeParameter(unit: 's', addValue: timer.addSeconds, maxValue: constants.maxSeconds)),
       ],
     );
   }
