@@ -18,13 +18,13 @@ class ListInfiniteWheel<T> extends StatelessWidget {
 
   @override
   Center build(BuildContext context) {
-    final style = Theme.of(context).textTheme.displaySmall;
+    final textStyle = Theme.of(context).textTheme.displaySmall;
 
     return Center(
       child: ConstrainedBox(
         constraints: BoxConstraints(
             maxHeight: itemExtent * 3,
-            maxWidth: (style?.fontSize ?? defaultItemSize) * magnification),
+            maxWidth: (textStyle?.fontSize ?? defaultItemSize) * magnification),
         child: ListWheelScrollView.useDelegate(
           itemExtent: itemExtent,
           useMagnifier: true,
@@ -38,7 +38,7 @@ class ListInfiniteWheel<T> extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Text(
                       '$value',
-                      style: style,
+                      style: textStyle,
                     )))
                 .toList(),
           ),
