@@ -2,12 +2,12 @@
 class Timer {
   int duration = 0;
 
-  addMinutes(int minutes){
-    duration = duration + (minutes * 60);
+  setMinutes(int minutes){
+    duration = duration - getMinutes() * 60 + (minutes * 60);
   }
 
-  addSeconds(int seconds){
-    duration = duration + seconds;
+  setSeconds(int seconds){
+    duration = duration - getSeconds() + seconds;
   }
 
   int getSeconds(){
