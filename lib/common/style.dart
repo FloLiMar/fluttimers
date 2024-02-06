@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
+import '../../common/constants.dart' as constants;
 Widget getMaxWidthMobileBuilder(BoxConstraints constraints, Widget widget) {
   if (constraints.maxWidth >= 480) {
     return buildSizedBox(
@@ -10,7 +10,7 @@ Widget getMaxWidthMobileBuilder(BoxConstraints constraints, Widget widget) {
   } else {
     return buildSizedBox(
       width: constraints.maxWidth,
-      horizontalPadding: 20,
+      horizontalPadding: constants.smallSpace,
       widget: widget
     );
   }
