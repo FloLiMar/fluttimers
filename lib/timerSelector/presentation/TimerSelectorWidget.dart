@@ -2,6 +2,7 @@ import 'package:dev/timerSelector/domain/TimeParameter.dart';
 import 'package:dev/timerSelector/domain/timer.dart';
 import 'package:dev/timerSelector/presentation/TimeWheelWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../common/constants.dart' as constants;
 import '../../common/style.dart';
@@ -47,7 +48,7 @@ class TimerSelectorWidget extends StatelessWidget {
                       onPressed: () {
                         print(timer.duration);
                       },
-                      label: const Text('VALIDER'),
+                      label: Text(AppLocalizations.of(ctx)!.validate),
                       icon: const Icon(
                         Icons.check,
                         size: constants.smallSpace,
