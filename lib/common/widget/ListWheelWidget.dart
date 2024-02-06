@@ -4,35 +4,43 @@ typedef OnSelectedItemChangedCallback<K> = void Function(K newValue);
 
 class ListInfiniteWheel<T> extends StatelessWidget {
   static const double magnification = 1.25;
-  static const int defaultItemSize = 14;
-  static const double wheelPercentSize = 0.4;
+  static const int defaultItemSize = 36;
+  static const double itemExtent = 80;
+  static const double itemNotSelectedOpacity = 0.5;
 
   final List<T> items;
   final OnSelectedItemChangedCallback<T> onSelectedItemChangedCallback;
-  const ListInfiniteWheel({super.key, required this.items, required this.onSelectedItemChangedCallback});
+
+  const ListInfiniteWheel(
+      {super.key,
+      required this.items,
+      required this.onSelectedItemChangedCallback});
 
   @override
   Center build(BuildContext context) {
-    final style = Theme
-        .of(context)
-        .textTheme
-        .bodyMedium;
-    Size size = MediaQuery.of(context).size;
-    final viewportHeight = size.height;
-    final padding = MediaQuery.of(context).viewPadding;
-    final height = viewportHeight - padding.top - kToolbarHeight;
+    final textStyle = Theme.of(context).textTheme.displaySmall;
+
     return Center(
       child: ConstrainedBox(
         constraints: BoxConstraints(
-          maxHeight: height*wheelPercentSize,
-        ),
+            maxHeight: itemExtent * 3,
+            maxWidth: (textStyle?.fontSize ?? defaultItemSize) * magnification),
         child: ListWheelScrollView.useDelegate(
-          itemExtent: (style?.fontSize ?? defaultItemSize) * 4,
+          itemExtent: itemExtent,
           useMagnifier: true,
           magnification: magnification,
+          overAndUnderCenterOpacity: itemNotSelectedOpacity,
           physics: const FixedExtentScrollPhysics(),
           childDelegate: ListWheelChildLoopingListDelegate(
-            children: this.items.map((value) => Text('$value', style: style,)).toList(),
+            children: this
+                .items
+                .map((value) => Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      '$value',
+                      style: textStyle,
+                    )))
+                .toList(),
           ),
           onSelectedItemChanged: (int index) {
             this.onSelectedItemChangedCallback(this.items[index]);

@@ -15,10 +15,13 @@ class NumberListWheelWidget extends StatelessWidget {
       this.minValue = 0,
       this.step = 1});
 
+  void onSelectedNumberChange(String newStringValue) {
+    onSelectedItemChangedCallback(int.parse(newStringValue));
+  }
   @override
   Widget build(BuildContext context) {
-    return ListInfiniteWheel<int>(
-        items: [for (var i = minValue; i <= maxValue; i += step) i],
-        onSelectedItemChangedCallback: onSelectedItemChangedCallback);
+    return ListInfiniteWheel<String>(
+        items: [for (var i = minValue; i <= maxValue; i += step) i.toString().padLeft(2,'0')],
+        onSelectedItemChangedCallback: onSelectedNumberChange);
   }
 }

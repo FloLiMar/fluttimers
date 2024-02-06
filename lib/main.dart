@@ -1,6 +1,8 @@
-import 'package:dev/common/widget/NumberListWheelWidget.dart';
+import 'package:dev/timerSelector/presentation/TimerSelectorWidget.dart';
 import 'package:flutter/material.dart';
-import 'common/constants.dart' as constants;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
 void main() {
       runApp(const MyApp());
 }
@@ -11,6 +13,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en'),
+          Locale('fr')
+        ],
         theme: ThemeData(
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
@@ -45,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body:  Center(
         child: Column(
-          children: [NumberListWheelWidget(onSelectedItemChangedCallback: updateValue, maxValue: constants.maxMinutes)],
+          children: [TimerSelectorWidget()],
         ),
       ),
     );
