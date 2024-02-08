@@ -14,7 +14,7 @@ class TimerSelectorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Column(children: [Expanded(
         child: Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +37,7 @@ class TimerSelectorWidget extends StatelessWidget {
         ),
         Expanded(
             child: Padding(
-          padding: const EdgeInsets.only(bottom: 20),
+          padding: const EdgeInsets.only(bottom: constants.smallSpace),
           child: Align(
               alignment: Alignment.bottomCenter,
               child: LayoutBuilder(
@@ -51,12 +51,12 @@ class TimerSelectorWidget extends StatelessWidget {
                       label: Text(AppLocalizations.of(ctx)!.validate),
                       icon: const Icon(
                         Icons.check,
-                        size: constants.smallSpace,
+                        size: constants.smallIcon,
                       ),
                     ));
               })),
         ))
       ],
-    ));
+    ))]);
   }
 }

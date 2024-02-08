@@ -1,4 +1,4 @@
-import 'package:dev/timerSelector/presentation/TimerSelectorWidget.dart';
+import 'package:dev/fluttimerMain/presentation/FluttimerMain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         ],
         theme: ThemeData(
           useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple),
         ),
         home: const MyHomePage(),
       );
@@ -55,11 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Fluttimers'),
       ),
-      body:  Center(
-        child: Column(
-          children: [TimerSelectorWidget()],
-        ),
-      ),
+      body:  EmptyFluttimerMainWidget()
     );
   }
 }
