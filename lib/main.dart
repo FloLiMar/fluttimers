@@ -1,4 +1,5 @@
-import 'package:dev/fluttimerMain/presentation/FluttimerMain.dart';
+import 'package:dev/appBar/presentation/AppBarWidget.dart';
+import 'package:dev/fluttimerMain/presentation/EmptyFluttimerMainWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -50,11 +51,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Fluttimers'),
-      ),
+    return const Scaffold(
+      appBar: AppBarWidget(),
       body:  EmptyFluttimerMainWidget()
     );
   }
