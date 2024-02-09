@@ -1,5 +1,6 @@
 import 'package:dev/appBar/presentation/AppBarWidget.dart';
 import 'package:dev/fluttimerMain/presentation/EmptyFluttimerMainWidget.dart';
+import 'package:dev/countDownTimer/presentation/EmptyCountDownTimersWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -33,11 +34,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  Widget build(BuildContext context) {
+    return const Scaffold(
+        appBar: AppBarWidget(), body: EmptyCountDownTimersWidget());
+  }
 }
 
 class _MyHomePageState extends State<MyHomePage> {

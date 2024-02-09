@@ -4,8 +4,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../common/constants.dart' as constants;
 
-class EmptyFluttimerMainWidget extends StatelessWidget {
-  const EmptyFluttimerMainWidget({super.key});
+class EmptyCountDownTimersWidget extends StatelessWidget {
+  const EmptyCountDownTimersWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
