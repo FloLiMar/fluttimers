@@ -52,6 +52,7 @@ class TimerSelectorWidget extends StatelessWidget {
                           TimerController timerController =
                               context.read<TimerController>();
                           timerController.updateTimer(timer.duration);
+                          Navigator.pop(context);
                         },
                         label: Text(AppLocalizations.of(ctx)!.validate),
                         icon: const Icon(
