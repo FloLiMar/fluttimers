@@ -1,7 +1,11 @@
-class Timer {
+class DurationTimer {
   int duration;
 
-  Timer([this.duration = 0]);
+  DurationTimer([this.duration = 0]);
+
+  Duration getDuration() {
+    return Duration(seconds: duration);
+  }
 
   int getSeconds(){
     return duration%60;
