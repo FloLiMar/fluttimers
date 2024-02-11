@@ -21,6 +21,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
       localDuration = Duration(seconds: widget.duration.inSeconds);
     });
   }
+
   void startTimer() {
     countdownTimer =
         Timer.periodic(const Duration(seconds: 1), (_) => setCountDown());
@@ -41,53 +42,39 @@ class _CountDownTimerState extends State<CountDownTimer> {
       }
     });
   }
+
   @override
   Widget build(BuildContext context) {
-
     String strDigits(int n) => n.toString().padLeft(2, '0');
     final minutes = strDigits(localDuration.inMinutes.remainder(60));
     final seconds = strDigits(localDuration.inSeconds.remainder(60));
 
-    return Column(
+    return Center(
+        child: Column(
+      children: [
+        Text(
+          '$minutes:$seconds',
+          style: const TextStyle(
+              fontWeight: FontWeight.bold, color: Colors.black, fontSize: 50),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 50,
-            ),
-            // Step 8
-            Text(
-              '$minutes:$seconds',
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                  fontSize: 50),
-            ),
-            const SizedBox(height: 20),
-            // Step 9
-            ElevatedButton(
+            IconButton.filled(
               onPressed: startTimer,
-              child: const Text(
-                'Start',
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-              ),
+              icon: const Icon(Icons.play_arrow),
             ),
-            // Step 10
-            ElevatedButton(
+            IconButton.filled(
               onPressed: () {
                 if (countdownTimer == null || countdownTimer!.isActive) {
                   stopTimer();
                 }
               },
-              child: const Text(
-                'Stop',
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-              ),
+              icon: const Icon(Icons.pause),
             ),
-            // Step 11
           ],
-    );
+        )
+      ],
+    ));
   }
 }
