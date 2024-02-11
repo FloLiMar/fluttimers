@@ -8,7 +8,11 @@ class SequenceController with ChangeNotifier {
     notifyListeners();
   }
 
-  Duration getFirstDuration() {
-    return durations.first;
+  Duration? getFirstDuration() {
+    return durations.isNotEmpty ? durations.first : null;
+  }
+
+  Duration? getNextDuration() {
+    return durations.length > 1 ? durations[1] : null;
   }
 }
