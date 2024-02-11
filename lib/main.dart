@@ -1,5 +1,5 @@
 import 'package:dev/appBar/presentation/AppBarWidget.dart';
-import 'package:dev/timerSelector/controller/TimerController.dart';
+import 'package:dev/timerSelector/controller/DurationTimerController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<TimerController>(
-        create: (context) => TimerController(),
+    return ChangeNotifierProvider<DurationTimerController>(
+        create: (context) => DurationTimerController(),
         child: MaterialApp(
           localizationsDelegates: const [
             AppLocalizations.delegate,

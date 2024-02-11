@@ -1,6 +1,6 @@
-import 'package:dev/timerSelector/controller/TimerController.dart';
+import 'package:dev/timerSelector/controller/DurationTimerController.dart';
 import 'package:dev/timerSelector/domain/TimeParameter.dart';
-import 'package:dev/timerSelector/domain/Timer.dart';
+import 'package:dev/timerSelector/domain/DurationTimer.dart';
 import 'package:dev/timerSelector/presentation/TimeWheelWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -10,7 +10,7 @@ import '../../common/constants.dart' as constants;
 import '../../common/style.dart';
 
 class TimerSelectorWidget extends StatelessWidget {
-  final Timer timer = Timer();
+  final DurationTimer timer = DurationTimer();
 
   TimerSelectorWidget({super.key});
 
@@ -49,9 +49,9 @@ class TimerSelectorWidget extends StatelessWidget {
                       constraints,
                       ElevatedButton.icon(
                         onPressed: () {
-                          TimerController timerController =
-                              context.read<TimerController>();
-                          timerController.updateTimer(timer.duration);
+                          DurationTimerController timerController =
+                              context.read<DurationTimerController>();
+                          timerController.updateDuration(timer.duration);
                           Navigator.pop(context);
                         },
                         label: Text(AppLocalizations.of(ctx)!.validate),
