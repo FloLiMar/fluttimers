@@ -1,9 +1,12 @@
 import 'dart:async';
 
+import 'package:dev/common/widget/FilledCard.dart';
 import 'package:flutter/material.dart';
+import '../../common/constants.dart' as constants;
 
 class CountDownTimer extends StatefulWidget {
   final Duration duration;
+
   const CountDownTimer({super.key, required this.duration});
 
   @override
@@ -50,31 +53,43 @@ class _CountDownTimerState extends State<CountDownTimer> {
     final seconds = strDigits(localDuration.inSeconds.remainder(60));
 
     return Center(
-        child: Column(
-      children: [
-        Text(
-          '$minutes:$seconds',
-          style: const TextStyle(
-              fontWeight: FontWeight.bold, color: Colors.black, fontSize: 50),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton.filled(
-              onPressed: startTimer,
-              icon: const Icon(Icons.play_arrow),
-            ),
-            IconButton.filled(
-              onPressed: () {
-                if (countdownTimer == null || countdownTimer!.isActive) {
-                  stopTimer();
-                }
-              },
-              icon: const Icon(Icons.pause),
-            ),
-          ],
-        )
-      ],
-    ));
+        child: FilledCard(
+            child: Padding(
+                padding: const EdgeInsets.all(constants.smallSpace),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      '$minutes:$seconds',
+                      style: TextStyle(fontSize: 80, color: Theme.of(context).colorScheme.onSurfaceVariant),
+                    ),
+                    const SizedBox(
+                      height: constants.smallSpace,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton.filled(
+                          onPressed: startTimer,
+                          icon: const Icon(Icons.play_arrow),
+                          iconSize: constants.mediumIcon,
+                        ),
+                        const SizedBox(
+                          width: constants.largeSpace,
+                        ),
+                        IconButton.filled(
+                          onPressed: () {
+                            if (countdownTimer == null ||
+                                countdownTimer!.isActive) {
+                              stopTimer();
+                            }
+                          },
+                          icon: const Icon(Icons.pause),
+                          iconSize: constants.mediumIcon,
+                        ),
+                      ],
+                    ),
+                  ],
+                ))));
   }
 }

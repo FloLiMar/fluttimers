@@ -21,7 +21,7 @@ class EmptyCountDownTimersWidget extends StatelessWidget {
           color: Theme.of(context).colorScheme.primary,
         ),
         Container(
-          margin: const EdgeInsets.symmetric(vertical: constants.largeSpace),
+          margin: const EdgeInsets.symmetric(vertical: constants.mediumSpace),
           child: ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
