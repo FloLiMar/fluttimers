@@ -4,10 +4,18 @@ import 'package:dev/common/widget/FilledCard.dart';
 import 'package:flutter/material.dart';
 import '../../common/constants.dart' as constants;
 
+typedef OnEndHandler = void Function();
+
 class CountDownTimer extends StatefulWidget {
   final Duration duration;
+  final OnEndHandler onEndHandler;
+  final bool isAutoStart;
 
-  const CountDownTimer({super.key, required this.duration});
+  const CountDownTimer(
+      {super.key,
+      required this.duration,
+      required this.onEndHandler,
+      required this.isAutoStart});
 
   @override
   State<CountDownTimer> createState() => _CountDownTimerState();
@@ -22,6 +30,17 @@ class _CountDownTimerState extends State<CountDownTimer> {
     super.initState();
     setState(() {
       localDuration = Duration(seconds: widget.duration.inSeconds);
+    });
+  }
+
+  @override
+  void didUpdateWidget(CountDownTimer oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    setState(() {
+      localDuration = Duration(seconds: widget.duration.inSeconds);
+      if (widget.isAutoStart) {
+        startTimer();
+      }
     });
   }
 
@@ -40,6 +59,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
       final seconds = localDuration.inSeconds - reduceSecondsBy;
       if (seconds < 0) {
         countdownTimer!.cancel();
+        widget.onEndHandler();
       } else {
         localDuration = Duration(seconds: seconds);
       }

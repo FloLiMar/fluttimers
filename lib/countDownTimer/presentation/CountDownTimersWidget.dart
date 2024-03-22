@@ -10,12 +10,11 @@ class CountDownTimersWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<SequenceController>(
-        builder: (context, sequenceController, child) {
-          if (sequenceController.durations.isEmpty) {
-            return const EmptyCountDownTimersWidget();
-          }
-          return const CountDownTimersListWidget();
-        },
-      );
+      builder: (context, sequenceController, child) {
+        return sequenceController.durations.isEmpty
+            ? const EmptyCountDownTimersWidget()
+            : const CountDownTimersListWidget();
+      },
+    );
   }
 }
