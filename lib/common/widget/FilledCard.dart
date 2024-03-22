@@ -9,16 +9,15 @@ class FilledCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child:  Padding(
-        padding: const EdgeInsets.all(constants.smallSpace),
-        child: Card(
-        elevation: 0,
-        color: Theme
-            .of(context)
-            .colorScheme
-            .surfaceVariant,
-        child: child,
-      ),
+        child: Padding(
+      padding: const EdgeInsets.all(constants.smallSpace),
+      child: Card(
+          elevation: 0,
+          color: Theme.of(context).colorScheme.surfaceVariant,
+          child: Padding(
+            padding: const EdgeInsets.all(constants.smallSpace),
+            child: child,
+          )),
     ));
   }
 }

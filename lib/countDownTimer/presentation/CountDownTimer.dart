@@ -54,42 +54,41 @@ class _CountDownTimerState extends State<CountDownTimer> {
 
     return Center(
         child: FilledCard(
-            child: Padding(
-                padding: const EdgeInsets.all(constants.smallSpace),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      '$minutes:$seconds',
-                      style: TextStyle(fontSize: 80, color: Theme.of(context).colorScheme.onSurfaceVariant),
-                    ),
-                    const SizedBox(
-                      height: constants.smallSpace,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton.filled(
-                          onPressed: startTimer,
-                          icon: const Icon(Icons.play_arrow),
-                          iconSize: constants.mediumIcon,
-                        ),
-                        const SizedBox(
-                          width: constants.largeSpace,
-                        ),
-                        IconButton.filled(
-                          onPressed: () {
-                            if (countdownTimer == null ||
-                                countdownTimer!.isActive) {
-                              stopTimer();
-                            }
-                          },
-                          icon: const Icon(Icons.pause),
-                          iconSize: constants.mediumIcon,
-                        ),
-                      ],
-                    ),
-                  ],
-                ))));
+            child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          '$minutes:$seconds',
+          style: TextStyle(
+              fontSize: constants.xlargeFont,
+              color: Theme.of(context).colorScheme.onSurfaceVariant),
+        ),
+        const SizedBox(
+          height: constants.smallSpace,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton.filled(
+              onPressed: startTimer,
+              icon: const Icon(Icons.play_arrow),
+              iconSize: constants.mediumIcon,
+            ),
+            const SizedBox(
+              width: constants.largeSpace,
+            ),
+            IconButton.filled(
+              onPressed: () {
+                if (countdownTimer == null || countdownTimer!.isActive) {
+                  stopTimer();
+                }
+              },
+              icon: const Icon(Icons.pause),
+              iconSize: constants.mediumIcon,
+            ),
+          ],
+        ),
+      ],
+    )));
   }
 }
