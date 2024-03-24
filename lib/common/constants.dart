@@ -8,6 +8,6 @@ const double largeSpace = 60;
 const double smallIcon = 20;
 const double mediumIcon = 45;
 const double largeIcon = 150;
-const double xxlargeIcon = 250;
+const double xxLargeIcon = 250;
 
-const double xlargeFont = 80;
+const double xLargeFont = 80;

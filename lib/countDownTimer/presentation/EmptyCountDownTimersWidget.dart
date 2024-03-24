@@ -17,7 +17,7 @@ class EmptyCountDownTimersWidget extends StatelessWidget {
       children: [
         Icon(
           Icons.alarm_add,
-          size: constants.xxlargeIcon,
+          size: constants.xxLargeIcon,
           color: Theme.of(context).colorScheme.primary,
         ),
         Container(

@@ -80,7 +80,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
         Text(
           '$minutes:$seconds',
           style: TextStyle(
-              fontSize: constants.xlargeFont,
+              fontSize: constants.xLargeFont,
               color: Theme.of(context).colorScheme.onSurfaceVariant),
         ),
         const SizedBox(
