@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'ListWheelWidget.dart';
+import 'list_wheel_widget.dart';
 
 class NumberListWheelWidget extends StatelessWidget {
   final OnSelectedItemChangedCallback<int> onSelectedItemChangedCallback;

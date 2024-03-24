@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:dev/common/utils/duration_utils.dart';
-import 'package:dev/common/widget/FilledCard.dart';
+import 'package:dev/common/widget/filled_card.dart';
 import 'package:flutter/material.dart';
 import '../../common/constants.dart' as constants;
 

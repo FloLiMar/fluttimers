@@ -1,8 +1,8 @@
 import 'package:dev/common/style.dart';
-import 'package:dev/common/widget/FilledCard.dart';
-import 'package:dev/countDownTimer/presentation/CountDownTimer.dart';
+import 'package:dev/common/widget/filled_card.dart';
+import 'package:dev/countDownTimer/presentation/count_down_timer.dart';
 import 'package:dev/countDownTimer/presentation/next_count_down_timer.dart';
-import 'package:dev/sequence/controller/SequenceController.dart';
+import 'package:dev/sequence/controller/sequence_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../common/constants.dart' as constants;
