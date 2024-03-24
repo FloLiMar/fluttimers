@@ -1,4 +1,5 @@
 {
   "validate": "Validate",
-  "start": "Start here!"
+  "start": "Start here!",
+  "next": "Next: "
 }

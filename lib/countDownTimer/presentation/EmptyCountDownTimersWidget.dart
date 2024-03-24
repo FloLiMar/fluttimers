@@ -17,11 +17,11 @@ class EmptyCountDownTimersWidget extends StatelessWidget {
       children: [
         Icon(
           Icons.alarm_add,
-          size: constants.xxlargeIcon,
+          size: constants.xxLargeIcon,
           color: Theme.of(context).colorScheme.primary,
         ),
         Container(
-          margin: const EdgeInsets.symmetric(vertical: constants.largeSpace),
+          margin: const EdgeInsets.symmetric(vertical: constants.mediumSpace),
           child: ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(

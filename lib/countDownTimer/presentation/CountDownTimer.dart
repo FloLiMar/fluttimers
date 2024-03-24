@@ -1,10 +1,22 @@
 import 'dart:async';
 
+import 'package:dev/common/utils/duration_utils.dart';
+import 'package:dev/common/widget/FilledCard.dart';
 import 'package:flutter/material.dart';
+import '../../common/constants.dart' as constants;
+
+typedef OnEndHandler = void Function();
 
 class CountDownTimer extends StatefulWidget {
   final Duration duration;
-  const CountDownTimer({super.key, required this.duration});
+  final OnEndHandler onEndHandler;
+  final bool isAutoStart;
+
+  const CountDownTimer(
+      {super.key,
+      required this.duration,
+      required this.onEndHandler,
+      required this.isAutoStart});
 
   @override
   State<CountDownTimer> createState() => _CountDownTimerState();
@@ -19,6 +31,17 @@ class _CountDownTimerState extends State<CountDownTimer> {
     super.initState();
     setState(() {
       localDuration = Duration(seconds: widget.duration.inSeconds);
+    });
+  }
+
+  @override
+  void didUpdateWidget(CountDownTimer oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    setState(() {
+      localDuration = Duration(seconds: widget.duration.inSeconds);
+      if (widget.isAutoStart) {
+        startTimer();
+      }
     });
   }
 
@@ -37,6 +60,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
       final seconds = localDuration.inSeconds - reduceSecondsBy;
       if (seconds < 0) {
         countdownTimer!.cancel();
+        widget.onEndHandler();
       } else {
         localDuration = Duration(seconds: seconds);
       }
@@ -45,17 +69,20 @@ class _CountDownTimerState extends State<CountDownTimer> {
 
   @override
   Widget build(BuildContext context) {
-    String strDigits(int n) => n.toString().padLeft(2, '0');
-    final minutes = strDigits(localDuration.inMinutes.remainder(60));
-    final seconds = strDigits(localDuration.inSeconds.remainder(60));
 
     return Center(
-        child: Column(
+        child: FilledCard(
+            child: Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          '$minutes:$seconds',
-          style: const TextStyle(
-              fontWeight: FontWeight.bold, color: Colors.black, fontSize: 50),
+          printDuration(localDuration),
+          style: TextStyle(
+              fontSize: constants.xLargeFont,
+              color: Theme.of(context).colorScheme.onSurfaceVariant),
+        ),
+        const SizedBox(
+          height: constants.smallSpace,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -63,6 +90,10 @@ class _CountDownTimerState extends State<CountDownTimer> {
             IconButton.filled(
               onPressed: startTimer,
               icon: const Icon(Icons.play_arrow),
+              iconSize: constants.mediumIcon,
+            ),
+            const SizedBox(
+              width: constants.largeSpace,
             ),
             IconButton.filled(
               onPressed: () {
@@ -71,10 +102,11 @@ class _CountDownTimerState extends State<CountDownTimer> {
                 }
               },
               icon: const Icon(Icons.pause),
+              iconSize: constants.mediumIcon,
             ),
           ],
-        )
+        ),
       ],
-    ));
+    )));
   }
 }

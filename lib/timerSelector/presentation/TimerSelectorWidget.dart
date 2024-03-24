@@ -1,6 +1,6 @@
-import 'package:dev/timerSelector/controller/DurationTimerController.dart';
-import 'package:dev/timerSelector/domain/TimeParameter.dart';
+import 'package:dev/sequence/controller/SequenceController.dart';
 import 'package:dev/timerSelector/domain/DurationTimer.dart';
+import 'package:dev/timerSelector/domain/TimeParameter.dart';
 import 'package:dev/timerSelector/presentation/TimeWheelWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -49,9 +49,9 @@ class TimerSelectorWidget extends StatelessWidget {
                       constraints,
                       ElevatedButton.icon(
                         onPressed: () {
-                          DurationTimerController timerController =
-                              context.read<DurationTimerController>();
-                          timerController.updateDuration(timer.duration);
+                          SequenceController sequenceController =
+                              context.read<SequenceController>();
+                          sequenceController.addDuration(timer.duration);
                           Navigator.pop(context);
                         },
                         label: Text(AppLocalizations.of(ctx)!.validate),
