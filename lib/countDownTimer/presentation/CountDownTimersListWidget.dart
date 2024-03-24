@@ -22,12 +22,23 @@ class CountDownTimersListWidget extends StatelessWidget {
               onEndHandler: sequenceController.increaseIndex,
               isAutoStart: sequenceController.index > 0,
             )
-          : FilledCard(child: LayoutBuilder(
-              builder: (BuildContext ctx, BoxConstraints constraints) {
-              return SizedBox(
-                  width: constraints.maxWidth,
-                  child: getSvgWidget('FinishLine', constants.largeIcon));
-            }))
+          : const FinishLineWidget()
     ]);
+  }
+}
+
+class FinishLineWidget extends StatelessWidget {
+  const FinishLineWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return FilledCard(child: LayoutBuilder(
+        builder: (BuildContext ctx, BoxConstraints constraints) {
+        return SizedBox(
+            width: constraints.maxWidth,
+            child: getSvgWidget('FinishLine', constants.largeIcon));
+      }));
   }
 }
