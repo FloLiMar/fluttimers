@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../common/widget/NumberListWheelWidget.dart';
-import '../domain/TimeParameter.dart';
+import '../../common/widget/number_list_wheel_widget.dart';
+import '../domain/time_parameter.dart';
 
 class TimeWheelWidget extends StatelessWidget {
   final TimeParameter timeParameter;

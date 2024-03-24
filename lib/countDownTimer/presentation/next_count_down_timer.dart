@@ -1,12 +1,12 @@
 import 'package:dev/common/style.dart';
 import 'package:dev/common/utils/duration_utils.dart';
-import 'package:dev/common/widget/FilledCard.dart';
+import 'package:dev/common/widget/filled_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:collection/collection.dart';
 
-import '../../sequence/controller/SequenceController.dart';
+import '../../sequence/controller/sequence_controller.dart';
 import '../../common/constants.dart' as constants;
 
 class NextCountDownTimer extends StatelessWidget {

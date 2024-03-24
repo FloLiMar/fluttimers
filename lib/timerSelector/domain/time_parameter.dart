@@ -1,4 +1,4 @@
-import '../../common/widget/ListWheelWidget.dart';
+import '../../common/widget/list_wheel_widget.dart';
 
 class TimeParameter {
   final String unit;

@@ -1,11 +1,11 @@
-import 'package:dev/appBar/presentation/AppBarWidget.dart';
-import 'package:dev/sequence/controller/SequenceController.dart';
+import 'package:dev/appBar/presentation/app_bar_widget.dart';
+import 'package:dev/sequence/controller/sequence_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
-import 'countDownTimer/presentation/CountDownTimersWidget.dart';
+import 'countDownTimer/presentation/count_down_timers_widget.dart';
 
 void main() {
   runApp(const MyApp());

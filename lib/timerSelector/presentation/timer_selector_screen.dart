@@ -1,5 +1,5 @@
-import 'package:dev/appBar/presentation/AppBarWidget.dart';
-import 'package:dev/timerSelector/presentation/TimerSelectorWidget.dart';
+import 'package:dev/appBar/presentation/app_bar_widget.dart';
+import 'package:dev/timerSelector/presentation/timer_selector_widget.dart';
 import 'package:flutter/material.dart';
 
 class TimerSelectorScreen extends StatelessWidget {

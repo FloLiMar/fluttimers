@@ -1,6 +1,6 @@
-import 'package:dev/countDownTimer/presentation/CountDownTimersListWidget.dart';
-import 'package:dev/countDownTimer/presentation/EmptyCountDownTimersWidget.dart';
-import 'package:dev/sequence/controller/SequenceController.dart';
+import 'package:dev/countDownTimer/presentation/count_down_timers_list_widget.dart';
+import 'package:dev/countDownTimer/presentation/empty_count_down_timers_widget.dart';
+import 'package:dev/sequence/controller/sequence_controller.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 

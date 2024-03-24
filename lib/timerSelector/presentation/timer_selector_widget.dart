@@ -1,7 +1,7 @@
-import 'package:dev/sequence/controller/SequenceController.dart';
-import 'package:dev/timerSelector/domain/DurationTimer.dart';
-import 'package:dev/timerSelector/domain/TimeParameter.dart';
-import 'package:dev/timerSelector/presentation/TimeWheelWidget.dart';
+import 'package:dev/sequence/controller/sequence_controller.dart';
+import 'package:dev/timerSelector/domain/duration_timer.dart';
+import 'package:dev/timerSelector/domain/time_parameter.dart';
+import 'package:dev/timerSelector/presentation/time_wheel_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
