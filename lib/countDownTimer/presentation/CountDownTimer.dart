@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:dev/common/utils/duration_utils.dart';
 import 'package:dev/common/widget/FilledCard.dart';
 import 'package:flutter/material.dart';
 import '../../common/constants.dart' as constants;
@@ -68,9 +69,6 @@ class _CountDownTimerState extends State<CountDownTimer> {
 
   @override
   Widget build(BuildContext context) {
-    String strDigits(int n) => n.toString().padLeft(2, '0');
-    final minutes = strDigits(localDuration.inMinutes.remainder(60));
-    final seconds = strDigits(localDuration.inSeconds.remainder(60));
 
     return Center(
         child: FilledCard(
@@ -78,7 +76,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          '$minutes:$seconds',
+          printDuration(localDuration),
           style: TextStyle(
               fontSize: constants.xLargeFont,
               color: Theme.of(context).colorScheme.onSurfaceVariant),
