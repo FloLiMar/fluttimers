@@ -1,5 +1,8 @@
 {
   "validate": "Valider",
   "start": "Commencer ici !",
-  "next": "Suivant : "
+  "next": "Suivant : ",
+  "home": "Timer",
+  "settings": "Paramètres",
+  "sequenceList": "Séquences"
 }
