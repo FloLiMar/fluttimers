@@ -1,9 +1,9 @@
 import 'package:dev/navigationBar/domain/navigation_mapper.dart';
+import 'package:dev/sequence/presentation/sequence_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../countDownTimer/presentation/count_down_timers_widget.dart';
-import '../../sequence/presentation/sequence_list_widget.dart';
 import '../../settings/presentation/settings_widget.dart';
 
 enum NavigationOrder {home, sequenceList, settings}
@@ -34,7 +34,7 @@ class NavigationController  {
           icon: const Icon(Icons.list),
           label: AppLocalizations.of(context)!.sequenceList,
         ),
-        widget: const SequenceListWidget());
+        widget: const SequenceScreen());
   }
 
   List<NavigationMapper> getNavigationMapperList() {
