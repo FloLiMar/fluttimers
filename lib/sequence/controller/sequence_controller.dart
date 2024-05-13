@@ -6,24 +6,6 @@ class SequenceController with ChangeNotifier {
 
   void addDuration(int secondDuration) {
     durations.add(Duration(seconds: secondDuration));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
-    durations.add(const Duration(seconds: 5));
     notifyListeners();
   }
 

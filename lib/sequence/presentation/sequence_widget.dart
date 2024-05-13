@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../common/constants.dart' as constants;
+import '../../timerSelector/presentation/timer_selector_screen.dart';
 
 class SequenceWidget extends StatelessWidget {
   const SequenceWidget({super.key});
@@ -30,7 +31,11 @@ class SequenceWidget extends StatelessWidget {
                   padding: const EdgeInsets.all(constants.smallSpace),
                   child: FloatingActionButton(
                     onPressed: () {
-                      print("Tapped extended FAB");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const TimerSelectorScreen()),
+                      );
                     },
                     child: const Icon(Icons.add),
                   )),
