@@ -4,5 +4,6 @@
   "next": "Suivant : ",
   "home": "Timer",
   "settings": "Paramètres",
-  "sequenceList": "Séquences"
+  "sequenceList": "Séquences",
+  "sequenceName": "Nom de la séquence"
 }
